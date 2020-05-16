@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<List> getData() async {
-    final response = await http.get('http://localhost/swipe/data/getdata');
+    final response = await http.get('http://divergense.com/swipe/data/getdata');
     final result = json.decode(response.body);
     return result;
   }
@@ -102,13 +102,7 @@ class ItemList extends StatelessWidget {
                       )));
             },
             title: Text(list[i]['title']),
-            leading: list[i]['image'] != ''
-                ? Container(
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage(list[i]['image']),
-                    ),
-                  )
-                : Icon(Icons.verified_user),
+            leading: Icon(Icons.verified_user),
             subtitle: Text(list[i]['description']),
           ),
         );
